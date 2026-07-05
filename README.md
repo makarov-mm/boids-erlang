@@ -8,6 +8,9 @@ Instead of a compute shader updating a buffer of structs, each boid owns its
 state and reacts to message-passed snapshots of the flock. Kill any boid
 mid-flight — the supervisor restarts it and the flock never notices.
 
+## Screenshot
+![Screenshot](screenshot.jpg)
+
 ## Architecture
 
 ```
