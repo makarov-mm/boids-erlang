@@ -2,11 +2,11 @@
 
 Craig Reynolds' boids, where **every boid is an isolated Erlang process**
 (`gen_server`) under a `simple_one_for_one` supervisor. Zero external
-dependencies — pure OTP.
+dependencies - pure OTP.
 
 Instead of a compute shader updating a buffer of structs, each boid owns its
 state and reacts to message-passed snapshots of the flock. Kill any boid
-mid-flight — the supervisor restarts it and the flock never notices.
+mid-flight - the supervisor restarts it and the flock never notices.
 
 ## Screenshot
 ![Screenshot](screenshot.jpg)
@@ -38,7 +38,7 @@ erl -pa ebin
 
 ```erlang
 1> flock:run().          % 60 boids, 300 animated frames
-2> flock:chaos().        % kill a random boid — watch the supervisor
+2> flock:chaos().        % kill a random boid - watch the supervisor
 ```
 
 Non-interactive check:
@@ -61,7 +61,7 @@ boids before kill: 60, after supervisor restart: 60
   processes).
 - **Fault tolerance for free.** `exit(Pid, kill)` on any boid → supervisor
   restarts it at a random position within microseconds.
-- **The opposite of GPU boids.** No shared memory, no buffers — only
+- **The opposite of GPU boids.** No shared memory, no buffers - only
   message passing. A useful contrast to compute-shader implementations.
 
 Tested on Erlang/OTP 25.
